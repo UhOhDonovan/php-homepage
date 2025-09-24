@@ -18,7 +18,7 @@ services:
       - "traefik.http.routers.php-homepage-secure.tls=true"
       - "traefik.http.routers.php-homepage-secure.service=php-homepage"
       - "traefik.http.routers.php-homepage-secure.middlewares=addwwwewitsdonovan@file"
-      - "traefik.http.services.php-homepage.loadbalancer.server.port=7777"
+      - "traefik.http.services.php-homepage.loadbalancer.server.port=80"
       - "traefik.docker.network=proxy"
 
 networks:
