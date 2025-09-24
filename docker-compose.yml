@@ -1,0 +1,26 @@
+services:
+  php-homepage:
+    container_name: php-homepage
+    image: php-homepage:latest
+    restart: unless-stopped
+    ports:
+      - "80:7777"
+    networks:
+      - proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.php-homepage.entrypoints=http"
+      - "traefik.http.routers.php-homepage.rule=Host(`www.local.asuschromebox.com`, `www.asuschromebox.com`) || Host(`local.asuschromebox.com`, `asuschromebox.com`)"
+      - "traefik.http.middlewares.php-homepage-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.php-homepage.middlewares=php-homepage-https-redirect"
+      - "traefik.http.routers.php-homepage-secure.entrypoints=https"
+      - "traefik.http.routers.php-homepage-secure.rule=Host(`www.local.asuschromebox.com`, `www.asuschromebox.com`) || Host(`local.asuschromebox.com`, `asuschromebox.com`)"
+      - "traefik.http.routers.php-homepage-secure.tls=true"
+      - "traefik.http.routers.php-homepage-secure.service=php-homepage"
+      - "traefik.http.routers.php-homepage-secure.middlewares=addwww@file"
+      - "traefik.http.services.php-homepage.loadbalancer.server.port=7777"
+      - "traefik.docker.network=proxy"
+
+networks:
+  proxy:
+    external: true
