@@ -7,11 +7,34 @@
     <title></title>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark">
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <span class="navbar-brand">
-                <h1>Hi, my name is Donovan! 🚀</h1>
-                <h4>Aspiring developer, writer, and artist.</h4>
+                <h1>
+                    <?php 
+                        if (isset($heading)) {
+                            echo $heading;
+                        } 
+                        else
+                        {
+                            echo "This is a heading.";
+                        }
+                    ?>
+                </h1>
+                <h4>
+
+                    <?php 
+                        if(isset($subheading))
+                        {
+                            echo $subheading;
+                        }
+                        else 
+                        {
+                            echo "This is a subheading.";
+                        }
+                    ?>
+                </h4>
             </span>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -23,24 +46,24 @@
                         <a class="nav-link active " aria-current="page" href="index.php">Home</a>
                     </div>
                     <div class="nav-item">
-                        <a class="nav-link " href="blog.php">Blog</a>
+                        <a class="nav-link " href="coming-soon.php">Blog</a>
                     </div>
                     <div class="nav-item">
-                        <a class="nav-link " href="project.php">Projects</a>
+                        <a class="nav-link " href="coming-soon.php">Projects</a>
                     </div>
                     <div class="nav-item">
-                        <a class="nav-link" href="#">My Writing</a>
+                        <a class="nav-link" href="coming-soon">My Writing</a>
                     </div>
                     <div class="nav-item">
                         <a class="nav-link" href="https://myart.ewitsdonovan.com">My Artwork</a>
                     </div>
                     <div class="nav-item">
-                        <a class="nav-link" href="contact.php">Contact Me</a>
+                        <a class="nav-link" href="coming-soon.php">Contact Me</a>
                     </div>
                 </div>
             </div>
         </div>
-      </nav>
-
+    </nav>
+</header>
 </body>
 </html>
